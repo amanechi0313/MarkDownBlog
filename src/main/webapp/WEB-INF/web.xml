@@ -12,5 +12,16 @@
         <servlet-name>PostArticle</servlet-name>
         <url-pattern>/articlehandling</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserRegister</servlet-name>
+        <servlet-class>markdownblog.controller.UserRegister</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserRegister</servlet-name>
+        <url-pattern>/userregister</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

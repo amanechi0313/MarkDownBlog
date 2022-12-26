@@ -4,13 +4,24 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
     <servlet>
-        <servlet-name>GetArticle</servlet-name>
-        <servlet-class>markdownblog.controller.GetArticle</servlet-class>
+        <servlet-name>PostArticle</servlet-name>
+        <servlet-class>markdownblog.controller.PostArticle</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>GetArticle</servlet-name>
+        <servlet-name>PostArticle</servlet-name>
         <url-pattern>/articlehandling</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserRegister</servlet-name>
+        <servlet-class>markdownblog.controller.UserRegister</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserRegister</servlet-name>
+        <url-pattern>/userregister</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

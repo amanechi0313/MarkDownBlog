@@ -9,21 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/PostArticle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/editor/body.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/editor/testget.jsp" afterDir="false" />
+    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="1226_noon">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Bean/UserBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/LoginFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/UserRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mssql-jdbc-11.2.0.jre17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/markdownblog/controller/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/HelloServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editor_unused.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/classes/com/markdownblog/controller/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/editor.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/markdownblog/controller/HelloServlet.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
+        <option value="Class" />
         <option value="Jsp File" />
       </list>
     </option>
@@ -75,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/_code/MarkDownBlog/src/main/webapp/editor",
+    "last_opened_file_path": "G:/_code/MarkDownBlog/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,6 +92,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\_code\MarkDownBlog\src\main\webapp\WEB-INF" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp\editor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -201,11 +199,23 @@
       <workItem from="1671624478557" duration="13630000" />
       <workItem from="1671670402895" duration="3728000" />
       <workItem from="1671756979781" duration="23204000" />
-      <workItem from="1672014518415" duration="6236000" />
+      <workItem from="1672014518415" duration="15474000" />
     </task>
+    <task id="LOCAL-00001" summary="1226_noon">
+      <created>1672021175150</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672021175150</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1226_noon" />
+    <option name="LAST_COMMIT_MESSAGE" value="1226_noon" />
   </component>
 </project>
