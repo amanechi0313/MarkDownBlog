@@ -1,4 +1,4 @@
-package com.markdownblog.controller;
+package markdownblog.controller;
 
 import java.io.*;
 

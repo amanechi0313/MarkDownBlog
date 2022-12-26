@@ -87,6 +87,7 @@
             newLine: function (){
                 const numberOfLines = event.target.value.split('\n').length;
                 console.log(numberOfLines);
+
                 for(let i = 1; i <= numberOfLines; i++) {
 
                     document.querySelector('.line-numbers').innerHTML = Array(numberOfLines)

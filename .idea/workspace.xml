@@ -9,7 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="" />
+    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/PostArticle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/editor/body.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/editor/testget.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/markdownblog/controller/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/controller/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editor_unused.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/classes/com/markdownblog/controller/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/editor.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/markdownblog/controller/HelloServlet.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +33,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Tag Library Descriptor" />
         <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/editor/body.vue" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -40,6 +62,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2JDtReT1cqXk6KS8UtCNUN89C64" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,21 +73,32 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/_code/MarkDownBlog",
+    "last_opened_file_path": "G:/_code/MarkDownBlog/src/main/webapp/editor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.24252874",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\_code\MarkDownBlog\src\main\webapp\editor" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\_code\MarkDownBlog\src\main\webapp\editor" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp" />
     </key>
   </component>
@@ -71,7 +107,7 @@
       <deployment>
         <artifact name="MarkDownBlog">
           <settings>
-            <option name="CONTEXT_PATH" value="/MarkDownBlog" />
+            <option name="CONTEXT_PATH" value="/markdownblog" />
           </settings>
         </artifact>
       </deployment>
@@ -162,7 +198,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671624477435</updated>
-      <workItem from="1671624478557" duration="12396000" />
+      <workItem from="1671624478557" duration="13630000" />
+      <workItem from="1671670402895" duration="3728000" />
+      <workItem from="1671756979781" duration="23204000" />
+      <workItem from="1672014518415" duration="6236000" />
     </task>
     <servers />
   </component>
