@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 <body>
-<form action="http://localhost:8080/markdownblog/userregister" method="post">
+<form action="http://localhost:8080/markdownblog/userlogin" method="post">
     <label>User ID:</label>
     <input name="userId" type="text"><br>
 

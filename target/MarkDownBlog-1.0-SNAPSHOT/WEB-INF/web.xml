@@ -23,5 +23,15 @@
         <url-pattern>/userregister</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserLogin</servlet-name>
+        <servlet-class>markdownblog.controller.UserLogin</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserLogin</servlet-name>
+        <url-pattern>/userlogin</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

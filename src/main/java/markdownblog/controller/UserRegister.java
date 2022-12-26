@@ -28,13 +28,16 @@ public class UserRegister extends HttpServlet {
         String userId = request.getParameter("userId");
         String userName = request.getParameter("userName");
         String userPassword = request.getParameter("userPassword");
-//        String modifyTime = request.getParameter("modifyTime");
-        System.out.println(userId+userName+userPassword);
+//        System.out.println(userId+userName+userPassword);
         storeUserData(userId,userName,userPassword);
-//        storeBook(Integer.parseInt(bookId), name, Integer.parseInt(price), author);
         out = response.getWriter();
+        out.println("<html><body>");
         out.println("Data below had been stored:"+userId+" "+userName+" "+userPassword+" ");
+        out.println("<a href=\"index.jsp\">Go back to landing page</a>");
+        out.println("</body></html>");
         out.close();
+//        request.getRequestDispatcher("index.jsp").forward(request, response);
+        //notworking...
     }
 
     private void initializeJDBC(){
@@ -56,7 +59,6 @@ public class UserRegister extends HttpServlet {
             preparedStatement.setString(1, userId);
             preparedStatement.setString(2, userName);
             preparedStatement.setString(3, userPassword);
-//            preparedStatement.setString(4, modifyTime);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
