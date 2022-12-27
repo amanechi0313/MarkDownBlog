@@ -23,7 +23,25 @@ public class UserLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
         String userPassword = request.getParameter("userPassword");
-        response.sendRedirect(login(userId,userPassword)?SUCCESS_PATH:ERROR_PATH);
+
+        String page;
+//        System.out.println(request.changeSessionId());
+        if(login(userId,userPassword)){
+            if(request.getSession(false)!=null){
+                request.changeSessionId();
+//                System.out.println(request.changeSessionId());
+            }
+            request.getSession().setAttribute("login",userId);
+            page="User";
+        }else {
+            System.out.println("login fail");
+            page=ERROR_PATH;
+        }
+
+        request.getRequestDispatcher(page).forward(request,response);
+
+//        request.getRequestDispatcher(login(userId,userPassword)?SUCCESS_PATH:ERROR_PATH).forward(request,response);
+//        response.sendRedirect(login(userId,userPassword)?SUCCESS_PATH:ERROR_PATH);
     }
 
     private boolean login(String userId, String userPassword){
@@ -49,7 +67,8 @@ public class UserLogin extends HttpServlet {
             }
 
             if(Objects.equals(user.getUserPassword(), userPassword)){
-                System.out.println("true");
+
+                System.out.println("password correct");
                 return true;
 
             }
@@ -59,7 +78,7 @@ public class UserLogin extends HttpServlet {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-        System.out.println("false");
+        System.out.println("password incorrect");
         return false;
     }
 }

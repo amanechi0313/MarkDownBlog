@@ -33,5 +33,33 @@
         <url-pattern>/userlogin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserModify</servlet-name>
+        <servlet-class>markdownblog.controller.UserModify</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserModify</servlet-name>
+        <url-pattern>/usermodify</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserLogout</servlet-name>
+        <servlet-class>markdownblog.controller.UserLogout</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserLogout</servlet-name>
+        <url-pattern>/userlogout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>org.glassfish.jersey.server.ResourceConfig</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>org.glassfish.jersey.server.ResourceConfig</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

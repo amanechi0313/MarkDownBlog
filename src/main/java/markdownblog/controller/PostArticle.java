@@ -27,17 +27,8 @@ public class PostArticle extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String bookId = request.getParameter("bookId");
-        String name = request.getParameter("name");
-        String price = request.getParameter("price");
-        String author = request.getParameter("author");
-        System.out.println(bookId+name+price+author);
-
-        storeBook(Integer.parseInt(bookId), name, Integer.parseInt(price), author);
-        out = response.getWriter();
-
-        out.println("Book " + name + " has been stored in the database.");
-        out.close();
+        String article = request.getParameter("article");
+        System.out.println(article);
     }
 
     private void initializeJDBC(){
@@ -54,12 +45,9 @@ public class PostArticle extends HttpServlet {
         }
     }
 
-    private void storeBook(int id, String name, int price, String author) {
+    private void storeBook(String article) {
         try {
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setInt(3, price);
-            preparedStatement.setString(4, author);
+            preparedStatement.setString(1, article);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

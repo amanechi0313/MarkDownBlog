@@ -11,6 +11,19 @@
     <title>Admin</title>
 </head>
 <body>
+<a href="modify.jsp">Account Modify</a>
+<a href="userlogout">Logout</a>
+
+<%----side----%>
+<%--dashboard(optional)--%>
+<%--account modify--%>
+<%--all article--%>
+<%-----top-----%>
+<%--account button--%>
+<%--    -logout--%>
+<%-----main-----%>
+<%--new article--%>
+
 
 </body>
 </html>

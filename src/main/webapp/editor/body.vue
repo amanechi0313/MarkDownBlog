@@ -44,7 +44,7 @@ body{
 </style>
 
 <template>
-<!--  <form action="http://localhost:8080/markdownblog/articlehandling" method="get">-->
+
   <div class="row">
     <div class="col g-0 left">
       <div class="editor">
@@ -60,7 +60,7 @@ body{
   </div>
 
   <div id="content"></div>
-<!--  </form>-->
+
 </template>
 <script setup>
 import { reactive } from 'vue'
