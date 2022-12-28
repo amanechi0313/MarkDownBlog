@@ -1,18 +1,17 @@
 <template>
+
   <div>
-    <nav  class="navbar bg-light px-3 ">
+    <nav class="navbar bg-light px-3 ">
       <a class="navbar-brand" href="#">MarkDownBlog</a>
       <!--      ここ-->
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="#" >Save</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" >Send</a>
+          <a class="nav-link" href="#" @click="save">Save</a>
         </li>
         <!--        なぜかリンクがズレてしまう！！-->
         <li class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
             Account
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -22,52 +21,94 @@
           </ul>
         </li>
       </ul>
+      <input placeholder="title" v-model="data.article.articleTitle">
+      <input placeholder="tags" v-model="data.article.tags">
     </nav>
   </div>
   <div class="row">
     <div class="col g-0 left">
       <div class="editor">
         <div class="line-numbers">
-          <div v-for="i in linesNumbers">{{i}}</div>
+          <div v-for="i in linesNumbers">{{ i }}</div>
         </div>
-        <textarea placeholder="add multiple lines" name="article" v-model="data.article"></textarea>
+        <textarea placeholder="add multiple lines" name="article" v-model="data.article.articleContent"></textarea>
       </div>
     </div>
     <div class="col g-0 right">
       <div id="content" v-html="markdown"></div>
     </div>
   </div>
+
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import {reactive, computed, onMounted} from 'vue'
 
 const data = reactive({
-  article: '',
-  // linesNumbers:  10,
-
+  article: {
+    articleTitle: '',
+    // computed({
+    //   get: () => data.article.articleContent.split('\n')[0].replace("# ","")
+    // }),
+    articleContent: '',
+    tags: '',
+  },
+  article_newed: {},
 })
 
 const linesNumbers = computed({
-  get: () => data.article.split('\n').length + 1
+  get: () => data.article.articleContent.split('\n').length + 1
 })
 
 const markdown = computed({
-  get:() => marked.parse(data.article)
+  get: () => marked.parse(data.article.articleContent)
 })
 
+function save() {
+  fetch('/markdownblog/api/markdown/save', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      articleId: data.article_newed.articleId,
+      articleTitle: data.article.articleTitle,
+      articleContent: data.article.articleContent,
+      tags: data.article.tags,
+    })
+  })
+      .then(response => {
+        if (response.status === 200)
+          console.log("article saved")
 
+      })
+}
 
-// function newLine(){
-//   data.linesNumbers = event.target.value.split('\n').length;
-//   // console.log(linesNumbers);
-//   // console.log(data.article);
-//   return linesNumbers;
-// }
+onMounted(() => {
+  fetch('/markdownblog/api/markdown/articles', {
+    method: 'post', // 通信メソッド
+    headers: {
+      'Content-Type': 'application/json' // JSON形式のデータのヘッダー
+    },
+    body: JSON.stringify({
+      articleTitle: data.article.articleTitle,
+      articleContent: data.article.articleContent,
+      tags: data.article.tags,
+    }) // JSON形式のデータ
+
+}).then(response => {
+  return response.json()
+}).then(d => {
+  data.article_newed = d;
+  console.log(d);
+  console.log(data.article_newed);
+})
+})
+
 </script>
 
 <style scoped>
-textarea{
+textarea {
   border: none;
   outline: none;
   background: #252525;
@@ -78,29 +119,32 @@ textarea{
   overflow: hidden;
   color: whitesmoke;
 }
-.col{
+
+.col {
   height: 100vh;
 }
 
-.row{
+.row {
   width: 100%;
 }
 
-.left{
+.left {
   background-color: #252525;
 }
 
-.right{
+.right {
   background-color: white;
 }
 
-body{
+body {
   background-color: #252525;
 }
-.editor{
+
+.editor {
   display: flex;
   height: 100vh;
 }
+
 .line-numbers {
   width: 5%;
   color: whitesmoke;

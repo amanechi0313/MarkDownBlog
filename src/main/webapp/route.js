@@ -21,10 +21,12 @@ function createComponent(path) {
 }
 
 const routes = [
-    { path: '/markdownblog/', component: createComponent('./home.vue') },
-    { path: '/markdownblog/login', component: createComponent('./login.vue') },
-    { path: '/markdownblog/success', component: createComponent('./loginSuccess.vue') },
-    { path: '/markdownblog/admin', component: createComponent('./admin.vue') },
-    { path: '/markdownblog/modify', component: createComponent('./modify.vue') },
-    { path: '/markdownblog/editor', component: createComponent('./editor.vue') },
+    { path: '/markdownblog/', component: createComponent('./home.vue') , sideMenuVisible: false},
+    { path: '/markdownblog/login', component: createComponent('./login.vue') ,sideMenuVisible: false},
+    { path: '/markdownblog/success', component: createComponent('./RegisterSuccess.vue') ,sideMenuVisible: false},
+    { path: '/markdownblog/admin', component: createComponent('./admin.vue') ,sideMenuVisible: true},
+    { path: '/markdownblog/modify', component: createComponent('./modify.vue') ,sideMenuVisible: true},
+    { path: '/markdownblog/editor', component: createComponent('./editor.vue') ,sideMenuVisible: false},
+    { path: '/markdownblog/register', component: createComponent('./register.vue') ,sideMenuVisible: false},
+    { path: '/markdownblog/articles', component: createComponent('./articles.vue') ,sideMenuVisible: true},
 ]
