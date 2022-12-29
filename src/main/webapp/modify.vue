@@ -1,5 +1,5 @@
 <style scoped>
-.incorrect{
+.incorrect {
   padding-left: 50px;
   color: red;
 }
@@ -8,15 +8,14 @@
 <template>
 
   <div class="container">
-    <h1>Modify your User Name & Password below😈{{ data.user.userId }}</h1>
-    <!--    <p>Latest modified time: {{data.user.modifyTime}}</p>-->
+    <h1>Modify your User Name & Password below😈{{ data.user.userName }}</h1>
     <div>
       <div class="mb-3">
         <label class="form-label">UserId:</label>
         <input type="text" class="form-control" :placeholder=data.user.userId disabled>
       </div>
       <div class="mb-3">
-        <label class="form-label">New User Name: (Current User Name: {{data.user.userName}})</label>
+        <label class="form-label">New User Name: (Current User Name: {{ data.user.userName }})</label>
         <input type="text" class="form-control" v-model="data.newuesrname">
       </div>
       <div class="mb-3">
@@ -30,7 +29,7 @@
       <button type="button" class="btn btn-primary" @click="modify">Modify</button>
     </div>
   </div>
-  <!--  </div>-->
+
 
 </template>
 
@@ -49,8 +48,9 @@ const data = reactive({
   user: {},
   toCheck: '',
   newpassword: '',
-  newuesrname:'',
-  pwCorrect: true
+  newuesrname: '',
+  pwCorrect: true,
+
 })
 
 function modify() {

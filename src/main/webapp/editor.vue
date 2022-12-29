@@ -3,7 +3,6 @@
   <div>
     <nav class="navbar bg-light px-3 ">
       <a class="navbar-brand" href="#">MarkDownBlog</a>
-      <!--      ここ-->
       <ul class="nav nav-pills">
         <li class="nav-item">
           <label>Title: </label>
@@ -16,7 +15,6 @@
         <li class="nav-item">
           <a class="nav-link" @click="save">Save</a>
         </li>
-        <!--        なぜかリンクがズレてしまう！！-->
         <li class="btn-group">
           <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                   aria-expanded="false">

@@ -1,5 +1,24 @@
 <style scoped>
 
+.searching {
+  animation-name: appear;
+  animation-duration: 2s;
+}
+
+.innerDiv {
+  animation-name: appear;
+  animation-duration: 2s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .ellipsis {
   width: 700px;
   white-space: nowrap;
@@ -75,7 +94,8 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="well search-result">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" @focus="onFocus" @blur="onBlur"
+            <input type="text" class="form-control" placeholder="Search" @change="onChange()" @focus="onFocus"
+                   @blur="onBlur"
                    v-model="data.keyword">
             <span class="input-group-btn">
               <button class="btn  btn-lg btn-primary" type="button" @click="search">
@@ -85,11 +105,10 @@
             </span>
           </div>
           <div>
-            <h3 v-if="data.input">What are you searching for?</h3>
+            <h3 class="searching" v-if="data.input">What are you searching for? Is it...</h3>
           </div>
         </div>
 
-        <!--        <p>TESTING HERE {{ data.user.userId }}</p>-->
         <div class="well search-result " style="overflow: auto; height: 75vh">
           <div class="button_wrap">
             <button type="button" class="btn btn-success  btn-block" @click="newarticle">
@@ -102,7 +121,7 @@
 
           <div class="row inner_row" v-for="article in data.articledata">
             <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-              <div @click="goto(article.articleId)">
+              <div class="innerDiv" @click="goto(article.articleId)">
                 <h3>{{ article.articleTitle }}</h3>
                 <p class="ellipsis">{{ article.articleContent }}</p>
                 <button type="button" class="btn btn-danger  btn-block" @click="deleteArticle(article.articleId)">Delete
@@ -124,8 +143,8 @@
 </template>
 
 <script setup>
-import {reactive, onMounted} from 'vue'
-import Side from "./side.vue";
+import {reactive, onMounted, watchEffect} from 'vue'
+
 
 const data = reactive({
   articledata: [],
@@ -134,11 +153,27 @@ const data = reactive({
 })
 
 function onBlur() {
-  data.input = false
+  data.input = false;
+
 }
 
+function onChange() {
+  if (data.input) {
+    search(data.keyword)
+  } else {
+    clearInterval(repeat);
+  }
+
+}
+
+let repeat;
+
 function onFocus() {
-  data.input = true
+  data.input = true;
+  repeat = setInterval(() =>
+      onChange(), 2000
+  )
+
 }
 
 function newarticle() {
@@ -197,15 +232,15 @@ function search() {
   })
 
 }
+
 function goto(articleId) {
   // router.push({ path:'/markdownblog/editor',params: {articleId}})
   router.push('/editor/' + articleId)
 }
 
-  onMounted(() => {
-    getarticles();
-  })
-
+onMounted(() => {
+  getarticles();
+})
 
 
 </script>

@@ -191,7 +191,7 @@ public class Markdown {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
 
-            keyword = "'%" + keyword +"%'";
+            keyword = "N'%" + keyword +"%'";
             System.out.println(keyword);
 
             PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE articleContent like " + keyword + " OR articleTitle LIKE " +keyword + " OR tags LIKE " +keyword + " AND userId = ?");
