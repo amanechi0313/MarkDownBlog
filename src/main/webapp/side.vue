@@ -8,24 +8,24 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <router-link to="/markdownblog/admin" class="nav-link text-white">
+        <router-link to="/admin" class="nav-link text-white">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Dashboard
         </router-link>
       </li>
       <li>
 <!--        <a href="#" class="nav-link text-white">-->
-          <router-link to="/markdownblog/articles" class="nav-link text-white">
+          <router-link to="/articles" class="nav-link text-white">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           Articles
           </router-link>
 <!--        </a>-->
       </li>
       <li>
-        <router-link to="/markdownblog/modify" class="nav-link text-white">
+        <router-link to="/modify" class="nav-link text-white">
 <!--        <a href="" class="nav-link text-white">-->
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Account
+          Settings
           </router-link>
 <!--        </a>-->
       </li>
@@ -53,7 +53,7 @@ function logout() {
     },
   })
       .then(response => {
-        router.push('/markdownblog/')
+        router.push('/')
         console.log('logout success')
       });
 }

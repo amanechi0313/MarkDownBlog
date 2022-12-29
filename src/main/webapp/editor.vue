@@ -6,7 +6,15 @@
       <!--      ここ-->
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="#" @click="save">Save</a>
+          <label>Title</label>
+          <input placeholder="title" v-model="data.article.articleTitle">
+        </li>
+        <li class="nav-item">
+          <label>Tags</label>
+          <input placeholder="tags" v-model="data.article.tags">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  @click="save">Save</a>
         </li>
         <!--        なぜかリンクがズレてしまう！！-->
         <li class="btn-group">
@@ -21,8 +29,7 @@
           </ul>
         </li>
       </ul>
-      <input placeholder="title" v-model="data.article.articleTitle">
-      <input placeholder="tags" v-model="data.article.tags">
+
     </nav>
   </div>
   <div class="row">
@@ -44,16 +51,17 @@
 <script setup>
 import {reactive, computed, onMounted} from 'vue'
 
+
+const route = VueRouter.useRoute()
+
+
 const data = reactive({
   article: {
     articleTitle: '',
-    // computed({
-    //   get: () => data.article.articleContent.split('\n')[0].replace("# ","")
-    // }),
     articleContent: '',
     tags: '',
   },
-  article_newed: {},
+  article_newId: 0,
 })
 
 const linesNumbers = computed({
@@ -71,7 +79,8 @@ function save() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      articleId: data.article_newed.articleId,
+
+      articleId: data.article_newId,
       articleTitle: data.article.articleTitle,
       articleContent: data.article.articleContent,
       tags: data.article.tags,
@@ -84,7 +93,37 @@ function save() {
       })
 }
 
+
 onMounted(() => {
+  console.log(route.params.articleId)
+
+  if(route.params.articleId!=null){
+    data.article_newId = route.params.articleId;
+    editarticle(route.params.articleId);
+  }else {
+    newarticle()
+  }
+
+})
+
+function editarticle(articleId) {
+  fetch('/markdownblog/api/markdown/articles/' + articleId, {
+    method: 'get', // 通信メソッド
+    headers: {
+      'Content-Type': 'application/json' // JSON形式のデータのヘッダー
+    },
+  }).then(response => {
+    return response.json()
+  }).then(d => {
+    data.article.articleTitle = d.articleTitle;
+    data.article.tag = d.tags;
+    data.article.articleContent = d.articleContent;
+  })
+
+}
+
+
+function newarticle() {
   fetch('/markdownblog/api/markdown/articles', {
     method: 'post', // 通信メソッド
     headers: {
@@ -96,14 +135,15 @@ onMounted(() => {
       tags: data.article.tags,
     }) // JSON形式のデータ
 
-}).then(response => {
-  return response.json()
-}).then(d => {
-  data.article_newed = d;
-  console.log(d);
-  console.log(data.article_newed);
-})
-})
+  }).then(response => {
+    return response.json()
+  }).then(d => {
+    data.article_newId = d;
+    console.log(d);
+    console.log(data.article_newId);
+    // console.log("typeof data.article_newed.articleId is " + typeof data.article_newed.articleId)
+  })
+}
 
 </script>
 

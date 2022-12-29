@@ -3,21 +3,8 @@
 </style>
 
 <template>
-  <!--	<div>-->
-  <!--		<div>-->
-  <!--			<label>User ID:</label>-->
-  <!--			<input v-model="data.userId" type="text">-->
-  <!--		</div>-->
-  <!--		<div>-->
-  <!--			<label>User Password:</label>-->
-  <!--			<input v-model="data.userPassword" type="password">-->
-  <!--		</div>-->
-  <!--		<div>-->
-  <!--			<button @click="login">送信</button>-->
-  <!--		</div>-->
-  <!--	</div>-->
-  <!--  <form>-->
   <div class="container">
+    <h1>This is Login Page.<span v-if="data.passwordIncorrect">亲，您的密码错囉😎</span></h1>
     <div class="mb-3">
       <label class="form-label">User ID:</label>
       <input type="text" class="form-control" v-model="data.userId">
@@ -36,11 +23,12 @@ import {reactive} from 'vue'
 
 const data = reactive({
   userId: '',
-  userPassword: ''
+  userPassword: '',
+  passwordIncorrect: false
 })
 
 function login() {
-  console.log(data.userId + " " + data.userPassword);
+  console.log("User login. ID: " + data.userId + " Password: " + data.userPassword);
   fetch('/markdownblog/api/auth/login', { // 送信先URL
     method: 'post', // 通信メソッド
     headers: {
@@ -55,7 +43,11 @@ function login() {
   })
       .then(response => {
         console.log('through here')
-        if (response.status === 200) router.push('/markdownblog/admin')
+        if (response.status === 200){
+          router.push('/admin')
+        } else if(response.status === 403){
+          data.passwordIncorrect = true;
+        }
       })
       .then(data => {
         console.log(data);

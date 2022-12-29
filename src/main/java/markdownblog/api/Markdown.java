@@ -20,24 +20,30 @@ class MarkdownData {
     public String articleContent = "";
     public String saveTime = "";
     public String tags = "";
+    public String toSearch = "";
 }
 
 @Path("markdown")
 public class Markdown {
     @GET
     @Produces("application/json")
-    @Path("/editor/{articleId}")
+    @Path("articles/{articleId}")
     public MarkdownData getMarkdown(@PathParam("articleId") String articleId) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
-            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Markdown] WHERE (articleId = ?) ");
+            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE (articleId = ?) ");
 
             preparedStatement.setString(1, articleId);
 
             ResultSet result = preparedStatement.executeQuery();
             if (result.next()) {
                 MarkdownData markdown = new MarkdownData();
-
+                markdown.userId = result.getString("userId");
+                markdown.articleId = result.getInt("articleId");
+                markdown.articleContent = result.getString("articleContent");
+                markdown.saveTime = result.getString("saveTime");
+                markdown.tags = result.getString("tags");
+                markdown.articleTitle = result.getString("articleTitle");
                 return markdown;
             }
         } catch (SQLException e) {
@@ -122,21 +128,87 @@ public class Markdown {
     @POST
     @Produces("application/json")
     @Path("save")
-    public int sacearticle(MarkdownData article, @Context HttpServletRequest request) {
+    public Response savearticle(MarkdownData article, @Context HttpServletRequest request) {
         System.out.println("through save api");
         try {
-            HttpSession session = request.getSession();
-            String userId = (String) session.getAttribute("login");
-
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
-            PreparedStatement preparedStatement = conn.prepareStatement("");
+            PreparedStatement preparedStatement = conn.prepareStatement(" UPDATE dbo.[Article] SET articleTitle = ? ,articleContent = ? , tags = ? , saveTime = GETDATE() WHERE articleId = ?");
 
+            preparedStatement.setString(1, article.articleTitle);
+            preparedStatement.setString(2, article.articleContent);
+            preparedStatement.setString(3, article.tags);
+            preparedStatement.setInt(4, article.articleId);
 
-//            return  Response.ok().build();
+            preparedStatement.executeUpdate();
+            System.out.println("article saved. articleId is " + article.articleId);
+
+            return  Response.ok().build();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-//        return Response.status(500).build();
-        return 0;//...not okay
+        return Response.status(500).build();
+
+    }
+
+    @POST
+    @Produces("application/json")
+    @Path("delete")
+    public Response deletearticle(MarkdownData article, @Context HttpServletRequest request) {
+        System.out.println("through delete api");
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
+            PreparedStatement preparedStatement = conn.prepareStatement(" delete from Article where articleId = ? ");
+
+            preparedStatement.setInt(1, article.articleId);
+            preparedStatement.executeUpdate();
+            System.out.println("article delete. articleId is " + article.articleId);
+
+            return  Response.ok().build();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return Response.status(500).build();
+
+    }
+
+    @POST
+    @Produces("application/json")
+    @Path("search")
+    public ArrayList<MarkdownData> search(String keyword, @Context HttpServletRequest request) {
+        System.out.println("through search api");
+        ArrayList<MarkdownData> articles = new ArrayList<>();
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
+            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE articleContent like '%"+keyword+"%' ");
+
+//            preparedStatement.setString(1, keyword);
+            ResultSet result = preparedStatement.executeQuery();
+
+            while (result.next())
+            {
+                MarkdownData markdown = new MarkdownData();
+                markdown.userId = result.getString("userId");
+                markdown.articleId = result.getInt("articleId");
+                markdown.articleContent = result.getString("articleContent");
+                markdown.articleTitle = result.getString("articleTitle");
+                markdown.saveTime = result.getString("saveTime");
+                markdown.tags = result.getString("tags");
+                articles.add(markdown);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return articles;
+
     }
 }

@@ -27,6 +27,7 @@ class Login {
     public String userId = "";
     public String userPassword = "";
     public String userName = "";
+    public boolean login = false;
 }
 
 @Path("auth")
@@ -154,6 +155,8 @@ public class Auth {
             ResultSet result = preparedStatement.executeQuery();
             if (result.next()) {
                 userdata.userName = result.getString("userName");
+                userdata.userPassword = result.getString("userPassword");
+                userdata.login = true;
                 return userdata;
             }
 

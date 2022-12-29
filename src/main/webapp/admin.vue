@@ -1,26 +1,18 @@
 <style scoped>
-/*div{*/
-/*  display: flex;*/
-/*}*/
 
-#user {
-  color: darkred;
-}
 </style>
 
 <template>
-  <!--  <div>-->
-  <!--  <side></side>-->
-
-  <p>This is admin page. Welcome <span id="user"></span></p>
-  <!--  </div>-->
+<div class="container>">
+  <h1>This is admin page. Welcome !! {{data.user.userName}} </h1>
+</div>
 </template>
 
 <script setup>
-import Side from "./side.vue";
-import {onMounted} from 'vue'
-
-const user = {};
+import {onMounted,reactive} from 'vue'
+const data = reactive({
+  user: {},
+})
 
 onMounted(() => {
   fetch('/markdownblog/api/auth/userdata', {
@@ -30,11 +22,8 @@ onMounted(() => {
     },
   }).then(response => {
     return response.json()
-  }).then(data => {
-    document.getElementById("user").innerText = data.userName;
-
-    //onMountedの外に届かない...
-
+  }).then(d => {
+    data.user = d;
   })
 })
 

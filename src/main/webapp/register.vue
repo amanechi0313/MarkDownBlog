@@ -3,8 +3,8 @@
 </style>
 
 <template>
-  <side></side>
   <div class="container">
+    <h1>This is Registration Page.</h1>
     <div class="mb-3">
       <label class="form-label">User ID:</label>
       <input type="text" class="form-control" v-model="data.userId">
@@ -18,9 +18,7 @@
       <input type="password" class="form-control" v-model="data.userPassword" >
     </div>
     <button type="button" class="btn btn-primary" @click="register">register</button>
-    <button type="button" class="btn btn-primary" @click="register">Test</button>
   </div>
-
 
 </template>
 
@@ -50,7 +48,7 @@ function register() {
     }) // JSON形式のデータ
   })
       .then(response => {
-        if (response.status === 200) router.push('/markdownblog/success')
+        if (response.status === 200) router.push('/success')
       });
 }
 
