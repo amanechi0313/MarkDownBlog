@@ -6,15 +6,15 @@
       <!--      ここ-->
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <label>Title</label>
+          <label>Title: </label>
           <input placeholder="title" v-model="data.article.articleTitle">
         </li>
         <li class="nav-item">
-          <label>Tags</label>
+          <label>Tags: </label>
           <input placeholder="tags" v-model="data.article.tags">
         </li>
         <li class="nav-item">
-          <a class="nav-link"  @click="save">Save</a>
+          <a class="nav-link" @click="save">Save</a>
         </li>
         <!--        なぜかリンクがズレてしまう！！-->
         <li class="btn-group">
@@ -23,9 +23,11 @@
             Account
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Menu item</a></li>
-            <li><a class="dropdown-item" href="#">Menu item</a></li>
-            <li><a class="dropdown-item" href="#">Menu item</a></li>
+            <li><a class="dropdown-item" @click="logout">
+              登出
+            </a></li>
+            <li><a class="dropdown-item" @click="deleteArticle(data.article_newId)">刪除此篇文章</a></li>
+            <li><a class="dropdown-item">點我啊</a></li>
           </ul>
         </li>
       </ul>
@@ -97,14 +99,27 @@ function save() {
 onMounted(() => {
   console.log(route.params.articleId)
 
-  if(route.params.articleId!=null){
+  if (route.params.articleId != null) {
     data.article_newId = route.params.articleId;
     editarticle(route.params.articleId);
-  }else {
+  } else {
     newarticle()
   }
 
 })
+
+function logout() {
+  fetch('/markdownblog/api/auth/logout', { // 送信先URL
+    method: 'post', // 通信メソッド
+    headers: {
+      'Content-Type': 'application/json' // JSON形式のデータのヘッダー
+    },
+  })
+      .then(response => {
+        router.push('/')
+        console.log('logout success')
+      });
+}
 
 function editarticle(articleId) {
   fetch('/markdownblog/api/markdown/articles/' + articleId, {
@@ -122,6 +137,26 @@ function editarticle(articleId) {
 
 }
 
+function deleteArticle(articleId) {
+  if (confirm('確定要刪除嗎？')) {
+    fetch('/markdownblog/api/markdown/delete', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        articleId: articleId,
+      })
+    })
+        .then(response => {
+          if (response.status === 200)
+            console.log("article deleted");
+            alert('文章已刪除，將回到文章列表');
+            router.push('/articles');
+        })
+  }
+
+}
 
 function newarticle() {
   fetch('/markdownblog/api/markdown/articles', {
@@ -191,5 +226,13 @@ body {
   padding-left: 23px;
   padding-right: 58px;
   padding-top: 5px;
+}
+
+.nav-link , li {
+  cursor: pointer;
+}
+
+li:hover{
+  opacity: 0.8;
 }
 </style>

@@ -9,24 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="1228_afternoon">
-      <change afterPath="$PROJECT_DIR$/src/main/java/markdownblog/filter/HistoryApiFallbackFilter.java" afterDir="false" />
+    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="1229_afternoon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/api/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/api/Auth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/api/Markdown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/api/Markdown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/controller/UserLogin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/filter/HistoryApiFallbackFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/filter/HistoryApiFallbackFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/articles.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/articles.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editor.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modify.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/side.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +81,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/_code/MarkDownBlog/src/main/java/filter",
+    "last_opened_file_path": "G:/_code/MarkDownBlog/src/main/webapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,8 +101,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\_code\MarkDownBlog\src\main\java\filter" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp" />
+      <recent name="G:\_code\MarkDownBlog\src\main\java\filter" />
       <recent name="G:\_code\MarkDownBlog\src\main\java\markdownblog\api" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp\WEB-INF" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp\editor" />
@@ -232,7 +223,7 @@
       <workItem from="1672149209486" duration="1038000" />
       <workItem from="1672187815218" duration="30079000" />
       <workItem from="1672238134976" duration="10299000" />
-      <workItem from="1672275781830" duration="18220000" />
+      <workItem from="1672275781830" duration="26162000" />
     </task>
     <task id="LOCAL-00001" summary="1226_noon">
       <created>1672021175150</created>
@@ -269,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672220194376</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1229_afternoon">
+      <created>1672295401720</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672295401720</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +279,7 @@
     <MESSAGE value="1226_afternoon_2" />
     <MESSAGE value="1227_afternoon" />
     <MESSAGE value="1228_afternoon" />
-    <option name="LAST_COMMIT_MESSAGE" value="1228_afternoon" />
+    <MESSAGE value="1229_afternoon" />
+    <option name="LAST_COMMIT_MESSAGE" value="1229_afternoon" />
   </component>
 </project>

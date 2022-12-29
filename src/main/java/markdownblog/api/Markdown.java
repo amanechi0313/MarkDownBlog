@@ -26,7 +26,7 @@ class MarkdownData {
 @Path("markdown")
 public class Markdown {
     @GET
-    @Produces("application/json")
+    @Produces("application/json; charset=UTF-8")
     @Path("articles/{articleId}")
     public MarkdownData getMarkdown(@PathParam("articleId") String articleId) {
         try {
@@ -177,18 +177,25 @@ public class Markdown {
 
     }
 
-    @POST
+    @GET
     @Produces("application/json")
-    @Path("search")
-    public ArrayList<MarkdownData> search(String keyword, @Context HttpServletRequest request) {
+    @Path("search/{keyword}")
+    public ArrayList<MarkdownData> search(@PathParam("keyword") String keyword ,@Context HttpServletRequest request) {
         System.out.println("through search api");
+
+        HttpSession session = request.getSession();
+        String userId = (String) session.getAttribute("login");
+
         ArrayList<MarkdownData> articles = new ArrayList<>();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;databaseName=Markdown;encrypt=true;trustServerCertificate=true;", "tsai", "tsai1999");
-            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE articleContent like '%"+keyword+"%' ");
 
-//            preparedStatement.setString(1, keyword);
+            keyword = "'%" + keyword +"%'";
+            System.out.println(keyword);
+
+            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE articleContent like " + keyword + " OR articleTitle LIKE " +keyword + " OR tags LIKE " +keyword + " AND userId = ?");
+            preparedStatement.setString(1,userId);
             ResultSet result = preparedStatement.executeQuery();
 
             while (result.next())

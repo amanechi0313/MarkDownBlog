@@ -27,7 +27,6 @@ const data = reactive({
 const items = [
   {name: 'Login', path: '/login'},
   {name: 'Register', path: '/register'},
-  {name: 'Logout', path: '/logout'},
   {name: 'Already Login? Go to Admin page', path: '/admin'},
 ]
 

@@ -52,6 +52,7 @@
 
 .inner_row:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .button_wrap {
@@ -101,8 +102,8 @@
 
           <div class="row inner_row" v-for="article in data.articledata">
             <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-              <div>
-                <h3 @click="goto(article.articleId)">{{ article.articleTitle }}</h3>
+              <div @click="goto(article.articleId)">
+                <h3>{{ article.articleTitle }}</h3>
                 <p class="ellipsis">{{ article.articleContent }}</p>
                 <button type="button" class="btn btn-danger  btn-block" @click="deleteArticle(article.articleId)">Delete
                 </button>
@@ -146,20 +147,22 @@ function newarticle() {
 
 
 function deleteArticle(articleId) {
-  fetch('/markdownblog/api/markdown/delete', {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      articleId: articleId,
-    })
-  })
-      .then(response => {
-        if (response.status === 200)
-          console.log("article deleted");
-        getarticles();
+  if (confirm('確定要刪除嗎？')) {
+    fetch('/markdownblog/api/markdown/delete', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        articleId: articleId,
       })
+    })
+        .then(response => {
+          if (response.status === 200)
+            console.log("article deleted");
+        })
+  }
+
 }
 
 function getarticles() {
@@ -179,14 +182,11 @@ function getarticles() {
 }
 
 function search() {
-  fetch('/markdownblog/api/markdown/search', {
-    method: 'post',
+  fetch('/markdownblog/api/markdown/search/' + data.keyword, {
+    method: 'get',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json; charset=utf-8'
     },
-    body: JSON.stringify({
-      keyword: data.keyword,
-    })
   })
       .then(response => {
         return response.json()
@@ -196,15 +196,16 @@ function search() {
     console.log(d);
   })
 
-  function goto(articleId) {
-    // router.push({ path:'/markdownblog/editor',params: {articleId}})
-    router.push('/editor/' + articleId)
-  }
+}
+function goto(articleId) {
+  // router.push({ path:'/markdownblog/editor',params: {articleId}})
+  router.push('/editor/' + articleId)
+}
 
   onMounted(() => {
     getarticles();
   })
-}
+
 
 
 </script>

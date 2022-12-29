@@ -29,9 +29,10 @@
           </router-link>
 <!--        </a>-->
       </li>
-      <li>
+      <div class="button_wrap">
         <button type="button" class="btn btn-primary" @click="logout">Logout</button>
-      </li>
+      </div>
+
 
     </ul>
     <hr>
@@ -60,5 +61,10 @@ function logout() {
 </script>
 
 <style scoped>
+.button_wrap{
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}
 
 </style>
