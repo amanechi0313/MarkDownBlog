@@ -9,15 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="1229 without filter">
+    <list default="true" id="5d73fe3f-70e8-43b0-9828-a07ad0d71a01" name="Changes" comment="1229 temp version">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Pretend You're Working - Hacker Typer.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/api/Markdown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/api/Markdown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/markdownblog/filter/HistoryApiFallbackFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markdownblog/filter/HistoryApiFallbackFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/articles.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/articles.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/modify.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/modify.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/MarkDownBlog-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/RegisterSuccess.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/RegisterSuccess.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,8 +107,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\_code\MarkDownBlog\src\main\webapp" />
-      <recent name="G:\_code\MarkDownBlog\src\main\java\markdownblog\api" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp\WEB-INF" />
+      <recent name="G:\_code\MarkDownBlog\src\main\webapp\WEB-INF\vedio" />
+      <recent name="G:\_code\MarkDownBlog\src\main\java\markdownblog\api" />
       <recent name="G:\_code\MarkDownBlog\src\main\webapp\editor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -223,7 +222,7 @@
       <workItem from="1672149209486" duration="1038000" />
       <workItem from="1672187815218" duration="30079000" />
       <workItem from="1672238134976" duration="10299000" />
-      <workItem from="1672275781830" duration="41140000" />
+      <workItem from="1672275781830" duration="46448000" />
     </task>
     <task id="LOCAL-00001" summary="1226_noon">
       <created>1672021175150</created>
@@ -274,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672305832631</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1229 temp version">
+      <created>1672327539382</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672327539382</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +294,8 @@
     <MESSAGE value="1228_afternoon" />
     <MESSAGE value="1229_afternoon" />
     <MESSAGE value="1229 without filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="1229 without filter" />
+    <MESSAGE value="1229 temp version" />
+    <option name="LAST_COMMIT_MESSAGE" value="1229 temp version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

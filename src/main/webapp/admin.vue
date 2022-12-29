@@ -4,7 +4,8 @@
 
 <template>
 <div class="container>">
-  <h1>This is admin page. Welcome !! {{data.user.userName}} </h1>
+  <h1 v-else>This is admin page. BUT YOU DIDN'T LOGIN🙄</h1>
+  <h1 v-if="data.user.login">This is admin page. Welcome !! {{data.user.userName}} </h1>
 </div>
 </template>
 

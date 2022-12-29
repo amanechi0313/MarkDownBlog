@@ -4,28 +4,20 @@
 
 <template>
   <div class="container">
-	<div>
-		<h1>User had been registered. Please login.</h1>
-    <button type="button" class="btn btn-primary" href="/login">Login</button>
-<!--    <button type="button" class="btn btn-primary" @click="logout">Logout</button>-->
-  </div>
+    <div>
+      <h1>User had been registered. Going back to Landing Page in 3 seconds...</h1>
+    </div>
   </div>
 </template>
 
 <script setup>
-import Login from "./login.vue";
+import {onMounted} from 'vue'
 
-// function logout() {
-//   fetch('/markdownblog/api/auth/logout', { // 送信先URL
-//     method: 'post', // 通信メソッド
-//     headers: {
-//       'Content-Type': 'application/json' // JSON形式のデータのヘッダー
-//     },
-//   })
-//       .then(response => {
-//         router.push('/markdownblog/')
-//         console.log('logout success')
-//       });
-// }
+onMounted(() => {
+  setTimeout(() => {
+    router.push('/')
+  }, 3000)
+
+})
 
 </script>
