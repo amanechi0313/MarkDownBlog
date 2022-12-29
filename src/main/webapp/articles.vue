@@ -121,9 +121,12 @@
 
           <div class="row inner_row" v-for="article in data.articledata">
             <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-              <div class="innerDiv" @click="goto(article.articleId)">
-                <h3>{{ article.articleTitle }}</h3>
-                <p class="ellipsis">{{ article.articleContent }}</p>
+              <div class="innerDiv">
+                <div @click="goto(article.articleId)">
+                  <h3>{{ article.articleTitle }}</h3>
+                  <p class="ellipsis">{{ article.articleContent }}</p>
+                </div>
+
                 <button type="button" class="btn btn-danger  btn-block" @click="deleteArticle(article.articleId)">Delete
                 </button>
               </div>
@@ -150,6 +153,7 @@ const data = reactive({
   articledata: [],
   input: false,
   keyword: '',
+  user: {}
 })
 
 function onBlur() {
@@ -176,8 +180,28 @@ function onFocus() {
 
 }
 
+function getuserdata() {
+  fetch('/markdownblog/api/auth/userdata', {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then(response => {
+    return response.json()
+  }).then(d => {
+    data.user = d;
+    console.log(d.login)
+  })
+}
+
 function newarticle() {
-  router.push("/editor")
+  if (data.user.login) {
+    router.push("/editor")
+  } else {
+    alert('你沒登入🙄')
+    router.push('/')
+  }
+
 }
 
 
@@ -195,6 +219,7 @@ function deleteArticle(articleId) {
         .then(response => {
           if (response.status === 200)
             console.log("article deleted");
+            getarticles();
         })
   }
 
@@ -240,6 +265,7 @@ function goto(articleId) {
 
 onMounted(() => {
   getarticles();
+  getuserdata();
 })
 
 

@@ -25,7 +25,7 @@
               登出
             </a></li>
             <li><a class="dropdown-item" @click="deleteArticle(data.article_newId)">刪除此篇文章</a></li>
-            <li><a class="dropdown-item">點我啊</a></li>
+            <li><a class="dropdown-item" @click="gotoArticles">回到文章列表</a></li>
           </ul>
         </li>
       </ul>
@@ -61,7 +61,7 @@ const data = reactive({
     articleContent: '',
     tags: '',
   },
-  article_newId: 0,
+  article_newId: 0
 })
 
 const linesNumbers = computed({
@@ -87,12 +87,19 @@ function save() {
     })
   })
       .then(response => {
-        if (response.status === 200)
-          console.log("article saved")
+        if (response.status === 200){
+          alert('文章已儲存😘')
+        }else if(response.status === 500){
+          alert('標題跟tag只能50個字內😰')
+        }
+
 
       })
 }
 
+function gotoArticles(){
+  router.push('/articles')
+}
 
 onMounted(() => {
   console.log(route.params.articleId)
@@ -103,6 +110,7 @@ onMounted(() => {
   } else {
     newarticle()
   }
+
 
 })
 
@@ -149,8 +157,8 @@ function deleteArticle(articleId) {
         .then(response => {
           if (response.status === 200)
             console.log("article deleted");
-            alert('文章已刪除，將回到文章列表');
-            router.push('/articles');
+          alert('文章已刪除，將回到文章列表');
+          router.push('/articles');
         })
   }
 
@@ -177,6 +185,8 @@ function newarticle() {
     // console.log("typeof data.article_newed.articleId is " + typeof data.article_newed.articleId)
   })
 }
+
+
 
 </script>
 
@@ -226,11 +236,11 @@ body {
   padding-top: 5px;
 }
 
-.nav-link , li {
+.nav-link, li {
   cursor: pointer;
 }
 
-li:hover{
+li:hover {
   opacity: 0.8;
 }
 </style>
