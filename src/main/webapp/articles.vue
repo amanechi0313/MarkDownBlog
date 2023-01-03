@@ -134,11 +134,11 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <button type="button" class="btn btn-primary  btn-block">
-            <i class="glyphicon glyphicon-refresh"></i>Load more...
-          </button>
-        </div>
+<!--        <div class="row">-->
+<!--          <button type="button" class="btn btn-primary  btn-block">-->
+<!--            <i class="glyphicon glyphicon-refresh"></i>Load more...-->
+<!--          </button>-->
+<!--        </div>-->
       </div>
     </div>
   </div>

@@ -194,7 +194,7 @@ public class Markdown {
             keyword = "N'%" + keyword +"%'";
             System.out.println(keyword);
 
-            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE articleContent like " + keyword + " OR articleTitle LIKE " +keyword + " OR tags LIKE " +keyword + " AND userId = ?");
+            PreparedStatement preparedStatement = conn.prepareStatement(" SELECT * from dbo.[Article] WHERE (articleContent like " + keyword + " OR articleTitle LIKE " +keyword + " OR tags LIKE " +keyword + " )AND userId = ?");
             preparedStatement.setString(1,userId);
             ResultSet result = preparedStatement.executeQuery();
 

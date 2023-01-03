@@ -16,7 +16,8 @@
     </div>
     <div class="mb-3">
       <label class="form-label">User Name:</label>
-      <input type="text" class="form-control" id="name" v-model="data.userName" @blur="checkName">
+      <span v-if="data.checker.name" class="danger">只能輸入10個字元！</span>
+      <input type="text" class="form-control" id="name" v-model="data.userName" @blur="checkName" placeholder="只能輸入10個字元">
     </div>
     <div class="mb-3">
       <label class="form-label">User Password:</label>
@@ -62,6 +63,7 @@ function checkID() {
 
 function checkPW() {
   console.log('pw checking!')
+  console.log(data.userPassword)
   let pwChecker = /^(?=.*[^a-zA-Z0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
   if (pwChecker.test(data.userPassword)) {
     data.checker.password = false;
@@ -76,10 +78,12 @@ function checkPW() {
 
 function checkName() {
   console.log('name checking!')
-  if (data.userName != '') {
+  if (data.userName.length <= 10 ) {
+    data.checker.name = false;
     document.getElementById("name").classList.remove("is-invalid");
     document.getElementById("name").classList.add("is-valid");
   } else {
+    data.checker.name = true;
     document.getElementById("name").classList.remove("is-valid");
     document.getElementById("name").classList.add("is-invalid");
   }

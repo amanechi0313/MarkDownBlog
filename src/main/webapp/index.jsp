@@ -20,6 +20,38 @@
 <head>
     <title>Mark Down Blog</title>
     <base href="/markdownblog/">
+    <style>
+        #content.markdown_wrap h1{
+            padding: 1rem 2rem;
+            color: #fff;
+            background: #094;
+            -webkit-box-shadow: 5px 5px 0 #007032;
+            box-shadow: 5px 5px 0 #007032;
+        }
+
+        #content.markdown_wrap h2{
+            position: relative;
+            padding: 1rem 2rem;
+            border-bottom: 6px solid #094;
+        }
+
+        #content.markdown_wrap h3{
+            position: relative;
+            padding: 1rem .5rem;
+        }
+
+        #content.markdown_wrap h3:after{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            content: '';
+            border-radius: 3px;
+            background-image: -webkit-gradient(linear, right top, left top, from(#2af598), to(#009efd));
+            background-image: -webkit-linear-gradient(right, #2af598 0%, #009efd 100%);
+            background-image: linear-gradient(to left, #2af598 0%, #009efd 100%);
+        }</style>
 </head>
 <body>
 

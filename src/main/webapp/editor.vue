@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="col g-0 right">
-      <div id="content" v-html="markdown"></div>
+      <div id="content" class="markdown_wrap" v-html="markdown"></div>
     </div>
   </div>
 
@@ -217,6 +217,7 @@ textarea {
 
 .right {
   background-color: white;
+  padding: 20px;
 }
 
 body {
@@ -241,6 +242,11 @@ body {
 }
 
 li:hover {
-  opacity: 0.8;
+  filter: brightness(120%);
 }
+
+nav{
+
+}
+
 </style>
